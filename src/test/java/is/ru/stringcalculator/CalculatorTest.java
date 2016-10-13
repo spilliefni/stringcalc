@@ -46,4 +46,9 @@ public class CalculatorTest {
 	public void testNumbersAboveThousand() {
 		assertEquals(37, Calculator.add("1001,37,0"));
 	}
+
+	@Test
+	public void testDifferentDelimeter() {
+		assertEquals(3, Calculator.add("//;\n1;2"));
+	}
 }

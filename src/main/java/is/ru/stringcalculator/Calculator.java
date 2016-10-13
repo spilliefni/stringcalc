@@ -5,8 +5,13 @@ public class Calculator {
 		if (s.equals("")) {
 			return 0;
 		}
+		else if (s.contains("//")) {
+			String[] split = splitString(s,"\n");
+			String delim = split[0].substring(2);
+			return sum(splitString(split[1], delim));
+		}
 		else if(s.contains(",") || s.contains("\n")) {
-			return sum(splitString(s));
+			return sum(splitString(s, ",|\n"));
 		}
 		else {
 			return toInt(s);
@@ -15,8 +20,8 @@ public class Calculator {
 	private static int toInt(String num) {
 		return Integer.parseInt(num);
 	}
-	private static String[] splitString(String nums) {
-		return nums.split(",|\n");
+	private static String[] splitString(String nums, String delim) {
+		return nums.split(delim);
 	}
 	private static int sum(String[] nums) throws IllegalArgumentException {
 		int total_sum = 0;
@@ -30,6 +35,4 @@ public class Calculator {
 		}
 		return total_sum;
 	}
-
-
 }
