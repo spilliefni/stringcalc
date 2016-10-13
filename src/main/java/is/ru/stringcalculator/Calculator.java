@@ -10,19 +10,19 @@ public class Calculator {
 			String delim = split[0].substring(2);
 			return sum(splitString(split[1], delim));
 		}
-		else if(s.contains(",") || s.contains("\n")) {
+		else {
 			return sum(splitString(s, ",|\n"));
 		}
-		else {
-			return toInt(s);
-		}
 	}
+
 	private static int toInt(String num) {
 		return Integer.parseInt(num);
 	}
+
 	private static String[] splitString(String nums, String delim) {
 		return nums.split(delim);
 	}
+
 	private static int sum(String[] nums) throws IllegalArgumentException {
 		int total_sum = 0;
 		String errorMsg = "";
