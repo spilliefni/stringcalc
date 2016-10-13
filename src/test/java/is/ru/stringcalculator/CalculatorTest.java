@@ -41,9 +41,4 @@ public class CalculatorTest {
 	public void testNewLineSeperator() {
 		assertEquals(69, Calculator.add("21,22\n26"));
 	}
-
-	@Test
-	public void testNewLineSeperator() {
-		assertEquals(69, Calculator.add("21,22\n26"));
-	}
 }
