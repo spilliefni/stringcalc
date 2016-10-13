@@ -5,7 +5,7 @@ public class Calculator {
 		if (s.equals("")) {
 			return 0;
 		}
-		else if(s.contains(",")) {
+		else if(s.contains(",") || s.contains("\n")) {
 			return sum(splitString(s));
 		}
 		else {
@@ -16,15 +16,17 @@ public class Calculator {
 		return Integer.parseInt(num);
 	}
 	private static String[] splitString(String nums) {
-		return nums.split(",");
+		return nums.split(",|\n");
 	}
-	private static int sum(String[] nums) {
+	private static int sum(String[] nums) throws IllegalArgumentException {
 		int total_sum = 0;
 		for (String num : nums) {
+			if (toInt(num) < 0) {
+				throw new IllegalArgumentException("Negatives not allowed: -1");
+			}
 			total_sum += toInt(num);
 		}
 		return total_sum;
 	}
 
-	
 }
