@@ -41,4 +41,9 @@ public class CalculatorTest {
 	public void testNewLineSeperator() {
 		assertEquals(69, Calculator.add("21,22\n26"));
 	}
+
+	@Test
+	public void testNumbersAboveThousand() {
+		assertEquals(37, Calculator.add("1001,37,0"));
+	}
 }

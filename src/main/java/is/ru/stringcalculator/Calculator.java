@@ -24,10 +24,12 @@ public class Calculator {
 			if (toInt(num) < 0) {
 				throw new IllegalArgumentException("Negatives not allowed: -1");
 			}
-			total_sum += toInt(num);
+			if (toInt(num) < 1000) {
+				total_sum += toInt(num);
+			}
 		}
 		return total_sum;
 	}
-	
+
 
 }
