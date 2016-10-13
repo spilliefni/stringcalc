@@ -5,6 +5,11 @@ public class Calculator {
 		if (s.equals("")) {
 			return 0;
 		}
-		return -1;
+		else {
+			return toInt(s);
+		}
+	}
+	private static int toInt(String num) {
+		return Integer.parseInt(num);
 	}
 }
