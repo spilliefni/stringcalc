@@ -25,13 +25,22 @@ public class Calculator {
 	}
 	private static int sum(String[] nums) throws IllegalArgumentException {
 		int total_sum = 0;
+		String errorMsg = "";
 		for (String num : nums) {
 			if (toInt(num) < 0) {
-				throw new IllegalArgumentException("Negatives not allowed: -1");
+				if (errorMsg == "") {
+					errorMsg = num;
+				}
+				else {
+					errorMsg.concat("," + num);
+				}
 			}
 			if (toInt(num) < 1000) {
 				total_sum += toInt(num);
 			}
+		}
+		if (errorMsg != "") {
+			throw new IllegalArgumentException("Negatives not allowed: " + errorMsg);
 		}
 		return total_sum;
 	}
