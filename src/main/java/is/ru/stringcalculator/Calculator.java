@@ -25,4 +25,6 @@ public class Calculator {
 		}
 		return total_sum;
 	}
+
+	
 }
